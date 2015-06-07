@@ -4,5 +4,5 @@ df <- read.csv.sql("household_power_consumption.txt",sql="select * from file whe
 df$datetime <- paste(df$Date, df$Time)
 df$datetime <- strptime(df$datetime, format = "%d/%m/%Y %H:%M:%S")
 df$weekdays <- as.factor(weekdays(df$datetime))
-with(df, plot(df$datetime, df$Global_active_power, ylab="Global Active Power (kilowatts)",type="l",xlab=""))
+with(df, plot(datetime, Global_active_power, ylab="Global Active Power (kilowatts)",type="l",xlab=""))
 dev.off()

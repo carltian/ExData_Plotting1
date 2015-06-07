@@ -4,7 +4,7 @@ df <- read.csv.sql("household_power_consumption.txt",sql="select * from file whe
 df$datetime <- paste(df$Date, df$Time)
 df$datetime <- strptime(df$datetime, format = "%d/%m/%Y %H:%M:%S")
 df$weekdays <- as.factor(weekdays(df$datetime))
-with(df, plot(df$datetime, df$Sub_metering_1, main="", type = "n", xlab="", ylab="Energy sub metering"))
+with(df, plot(datetime, Sub_metering_1, main="", type = "n", xlab="", ylab="Energy sub metering"))
 with(subset(df,select=Sub_metering_1), points(df$datetime, df$Sub_metering_1, type="l"))
 with(subset(df,select=Sub_metering_2), points(df$datetime, df$Sub_metering_2, type="l", col="red"))
 with(subset(df,select=Sub_metering_3), points(df$datetime, df$Sub_metering_3, type="l", col="blue"))
